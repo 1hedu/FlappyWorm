@@ -1,0 +1,12 @@
+intact 19.0 of 24 (n=32); Bonferroni x11
+  AIY               13.6  ( -5.4)  p=0.0087  nominal
+  AIB                9.6  ( -9.4)  p=0.0000  SIGNIFICANT
+  RIM               17.7  ( -1.3)  p=0.2593  n.s.
+  AIZ               19.9  ( +0.9)  p=0.7753  n.s.
+  RIA               17.6  ( -1.4)  p=0.3127  n.s.
+  AVE               22.2  ( +3.2)  p=0.9955  n.s.
+  AVD               22.1  ( +3.1)  p=0.9981  n.s.
+  FLP               17.9  ( -1.0)  p=0.4254  n.s.
+  PLM (control)     19.6  ( +0.6)  p=0.7091  n.s.
+  URYV (control)    18.0  ( -1.0)  p=0.2756  n.s.
+  CEP (control)     16.5  ( -2.5)  p=0.1071  n.s.

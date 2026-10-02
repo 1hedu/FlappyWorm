@@ -1,0 +1,22 @@
+{
+  "g_chem": 2.0,
+  "g_gap": 0.3,
+  "ach_conflict": 1.0,
+  "glu_conflict": -0.5,
+  "cmd_conflict": null,
+  "unknown_sign": -0.5,
+  "use_receptor": true,
+  "sign_mode": "dominance",
+  "dom_sharp": 0.5,
+  "use_overrides": true,
+  "tau": 0.1,
+  "theta": 1.0,
+  "beta": 0.3,
+  "dt": 0.005,
+  "norm": "global",
+  "count_scale": 20.0,
+  "gap_scale": 10.0,
+  "input_gain": 6.0,
+  "noise": 0.02,
+  "rest_rate": 0.3
+}

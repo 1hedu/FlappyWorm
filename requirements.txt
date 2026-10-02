@@ -1,0 +1,5 @@
+cect==0.3.4
+numpy==2.3.5
+scipy==1.18.1
+wormneuroatlas==0.0.7.3
+playwright

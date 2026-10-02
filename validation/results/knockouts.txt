@@ -1,0 +1,13 @@
+intact           mean 19.0 of 24 | perfect 16/32 | deaths {"ground":10,"bottom pipe while climbing":3,"bottom pipe while sinking":3,"survived":16}
+AIY              mean 13.6 of 24 | perfect 10/32 | deaths {"bottom pipe while sinking":13,"survived":10,"bottom pipe while climbing":5,"ground":4}
+AIB              mean 9.6 of 24 | perfect 2/32 | deaths {"bottom pipe while sinking":18,"bottom pipe while climbing":12,"survived":2}
+RIM              mean 17.7 of 24 | perfect 14/32 | deaths {"bottom pipe while sinking":12,"survived":14,"bottom pipe while climbing":6}
+AIZ              mean 19.9 of 24 | perfect 19/32 | deaths {"ground":3,"bottom pipe while sinking":4,"survived":19,"bottom pipe while climbing":6}
+RIA              mean 17.6 of 24 | perfect 16/32 | deaths {"bottom pipe while climbing":5,"survived":16,"bottom pipe while sinking":3,"ground":8}
+AVE              mean 22.2 of 24 | perfect 26/32 | deaths {"bottom pipe while sinking":3,"survived":26,"bottom pipe while climbing":2,"ground":1}
+AVD              mean 22.1 of 24 | perfect 28/32 | deaths {"survived":28,"ground":2,"bottom pipe while climbing":1,"bottom pipe while sinking":1}
+FLP              mean 17.9 of 24 | perfect 17/32 | deaths {"survived":17,"ground":6,"bottom pipe while climbing":4,"top pipe while climbing":2,"top pipe while sinking":2,"bottom pipe while sinking":1}
+PLM (control)    mean 19.6 of 24 | perfect 19/32 | deaths {"survived":19,"bottom pipe while sinking":3,"bottom pipe while climbing":1,"ground":9}
+URYV (control)   mean 18.0 of 24 | perfect 14/32 | deaths {"ground":13,"survived":14,"bottom pipe while sinking":3,"bottom pipe while climbing":2}
+CEP (control)    mean 16.5 of 24 | perfect 12/32 | deaths {"survived":12,"bottom pipe while sinking":5,"bottom pipe while climbing":3,"ground":12}
+DONE

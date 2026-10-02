@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flappy Worm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #1d2620; --sky: #70c5ce; --pipe: #73bf2e; --pipe2: #558b2f; --ground: #ded895; --grass: #7cbf3a; --worm: #f4eedc; --edge: #6f5f3c; --txt: #dde9d6; --muted: #93a78c; --glow: #8ef27c; --dim: #2f3d31; --btn: #2a362d; --btn-on: #3e5a40; --ko: #d0676d;
+  box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --sky: #4f8f96; --ground: #b8b27a; color-scheme: dark; } }
+:root[data-theme="dark"] { --sky: #4f8f96; --ground: #b8b27a; color-scheme: dark; }
+*, *::before, *::after { box-sizing: inherit; }
+html { height: 100%; } body { height: 100%; margin: 0; background: var(--bg); color: var(--txt); font-family: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif; font-size: 16px; line-height: 1.45; }
+.app { display: grid; grid-template-rows: auto auto auto; min-height: 100%; max-width: 900px; margin: 0 auto; padding: 14px; gap: 10px; }
+h1 { margin: 0; font-size: 26px; } .muted { color: var(--muted); font-size: 15px; margin: 0; }
+#game { display: block; background: var(--sky); border-radius: 6px; aspect-ratio: 4 / 3; width: min(100%, calc((100vh - 330px) * 4 / 3)); min-width: 320px; height: auto; margin: 0 auto; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+button { font: inherit; font-size: 15px; color: var(--txt); background: var(--btn); border: 1px solid transparent; border-radius: 6px; padding: 7px 12px; cursor: pointer; }
+button[aria-pressed="true"] { background: var(--btn-on); border-color: var(--glow); color: var(--glow); }
+button:focus-visible { outline: 2px solid var(--glow); outline-offset: 2px; }
+#score { font-weight: 700; font-size: 22px; color: var(--glow); min-width: 7ch; }
+#neurons { display: flex; gap: 14px; align-items: center; font-size: 14px; color: var(--muted); }
+.n { display: inline-flex; align-items: center; gap: 6px; } .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--dim); display: inline-block; }
+details { font-size: 14px; color: var(--muted); } summary { cursor: pointer; color: var(--txt); font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div>
+    <h1>Flappy Worm</h1>
+    <p class="muted">The <i>C. elegans</i> wiring diagram learns to play Flappy Bird. The centre of each gap gives off a food smell. When the worm drifts away from the gap's height, the smell fades, its odour neuron AWC fires, and through the real wiring its escape neuron AVA rises; each fresh rise turns it back: a flap if it's sinking, a dive if it's climbing. Neural noise alone never triggers a turn-back. The worm starts with a modest innate attraction to the smell; every gap it passes through near the centre counts as a meal and strengthens AWC's synapses. Classic Flappy physics; behind the scenes the game clock runs 2.5× slower than the worm's nervous system, because a worm's reflex takes about half a second.</p>
+  </div>
+  <canvas id="game" aria-label="Flappy Worm game view"></canvas>
+  <div>
+    <div class="row">
+      <button id="play">Play one game</button><button id="train" aria-pressed="false">Train (keep playing)</button><button id="newworm">New worm</button><button id="versus" aria-pressed="false">Real vs shuffled race</button>
+      <span id="score">score 0</span>
+      <span id="neurons"><span class="n"><span class="dot" id="d-plm"></span>AWC (smell fading)</span><span class="n"><span class="dot" id="d-ava"></span>AVA (turn back → flap/dive)</span><span class="n"><span class="dot" id="d-ash"></span>ASH (pain)</span></span>
+    </div>
+    <div class="row" style="margin-top:8px" role="group" aria-label="What drives the worm">
+      <button data-mode="real" aria-pressed="true">Real wiring, learning</button><button data-mode="frozen" aria-pressed="false">Learning off</button><button data-mode="scrambled" aria-pressed="false">Scrambled</button><button data-mode="script" aria-pressed="false">Simple script</button><button data-mode="you" aria-pressed="false">You (space / tap)</button>
+      <span id="best" class="muted"></span>
+    </div>
+    <div class="row" style="margin-top:8px"><span class="muted">food smell → turn back?</span><span style="flex:1;max-width:220px;height:12px;background:var(--dim);border-radius:6px;position:relative;overflow:hidden"><i id="assoc" style="position:absolute;left:0;top:0;bottom:0;background:var(--glow)"></i></span><span id="assocv" class="muted"></span></div>
+    <canvas id="curve" style="width:100%;height:90px;display:block;margin-top:8px;background:#172019;border-radius:4px" aria-label="Pipes passed per game"></canvas>
+    <details style="margin-top:8px"><summary>What's real here?</summary>
+      <p><b>Real:</b> the 302-neuron wiring (Cook et al. 2019), transmitter identities (Wang et al. 2024), the odour neuron AWC and its output synapses, and the turn-back reflex through AVA, the same circuit that made the worm find salt.</p>
+      <p><b>Modelled on real biology:</b> the learning. Worms strengthen attraction to a cue that comes with food; here passing near a gap's centre counts as eating and scales AWC's output synapses up (the same rule as in the salt/odour learning game). Rates are compressed.</p>
+      <p><b>Engineered:</b> the gap's smell (it depends on the worm's height relative to the gap centre and grows as the pipe approaches), reading a fresh rise of AVA above a threshold set from measured noise as "turn back" (flap if sinking, dive if climbing), gravity, pipes, slow motion. Learning off freezes the synapses; scrambled wiring shuffles synapse targets; the simple script reverses whenever the smell fades, with no neurons.</p>
+      <p><b>Checks:</b> with neural noise switched off the worm flies just as well (smell drives it); with the smell switched off it never turns back and falls; stronger AWC synapses fly better (smell strength 0.4 about 6 of 24 pipes, 1.0 about 18); five degree-preserving shuffles of the wiring score 0; learning worms go from about 1 pipe in their first game to mostly full courses. Knocking out single neurons (32 games each): only AIB significantly hurts (9.6 vs 19.0 pipes), matching the published route by which AWC's "odour gone" signal drives reversals through AIB (Chalasani et al. 2007).</p>
+      <p>This is a toy model driven by a real wiring diagram, not an upload of a worm.</p></details>
+  </div>
+</div>
+<script>/*WORMCORE*/</script>
+<script>const BRAIN = /*BRAIN*/;</script>
+<script>/*APP*/</script>
+<script>/*VERSUS*/</script>
+</body>
+</html>

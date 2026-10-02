@@ -1,0 +1,13 @@
+held-out, noise on : 13.1/24, perfect 6/16
+held-out, noise off: 11.3/24, perfect 0/16
+smell off: 0.0/24
+degree-preserving shuffle #1: 0 0
+degree-preserving shuffle #2: 0 0
+degree-preserving shuffle #3: 0 0
+learning worm 1: 8 24 18 7 24 2
+learning worm 2: 2 5 5 24 8 24
+learning worm 3: 4 24 13 24 24 21
+frozen   worm 1: 2 3 1 1 1 2
+frozen   worm 2: 1 2 1 1 1 2
+frozen   worm 3: 2 2 1 1 2 1
+DONE

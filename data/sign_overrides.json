@@ -1,0 +1,57 @@
+{
+  "note": "Literature-grounded sign overrides applied after automatic sign resolution. Each entry is an ENGINEERED choice; keep this list short and cited.",
+  "overrides": [
+    {
+      "pre": [
+        "ALM",
+        "AVM"
+      ],
+      "post": [
+        "AVB",
+        "PVC"
+      ],
+      "sign": -1.0,
+      "why": "Anterior touch neurons: classic circuit hypothesis (Chalfie et al. 1985; consistent with Wicks & Rankin 1996) is gap junctions onto same-direction (reverse) command interneurons and inhibitory chemical synapses onto opposite-direction (forward) ones. Receptor dominance cannot see synapse-specific receptor localisation."
+    },
+    {
+      "pre": [
+        "PLM",
+        "PVM",
+        "LUA"
+      ],
+      "post": [
+        "AVA",
+        "AVD",
+        "AVE"
+      ],
+      "sign": -1.0,
+      "why": "Posterior touch: same hypothesis mirrored (inhibit opposite-direction reverse interneurons). LUA is included as the PLM->PVC relay of the posterior touch pathway (Chalfie et al. 1985); treating its synapses onto reverse interneurons as inhibitory is OUR EXTENSION of that hypothesis."
+    },
+    {
+      "pre": [
+        "AVA",
+        "AVD",
+        "AVE"
+      ],
+      "post": [
+        "AVB",
+        "PVC"
+      ],
+      "sign": -1.0,
+      "why": "Forward/reverse command modules are antagonistic: AVA and AVB activity is anticorrelated in whole-brain imaging (Kato et al. 2015), and fitting polarities to ablation data gives mostly inhibitory locomotor-interneuron synapses (Rakowski et al. 2013)."
+    },
+    {
+      "pre": [
+        "AVB",
+        "PVC"
+      ],
+      "post": [
+        "AVA",
+        "AVD",
+        "AVE"
+      ],
+      "sign": -1.0,
+      "why": "Same as above, other direction."
+    }
+  ]
+}
