@@ -4,7 +4,9 @@ The real 302-neuron wiring diagram of the worm *C. elegans* playing Flappy Bird,
 
 **[Play it](index.html)** (one self-contained page; open it in a browser) · press **D** while playing to see what drives every flap.
 
-[![FlappyWorm](docs/media/flappyworm.gif)](docs/media/flappyworm.mp4)
+[![The real C. elegans connectome playing Flappy Bird](docs/media/play.gif)](docs/media/flappyworm.mp4)
+
+Full video: [docs/media/flappyworm.mp4](docs/media/flappyworm.mp4)
 
 ## What's going on
 
@@ -15,6 +17,10 @@ strengthens AWC's synapses, so a new worm starts clumsy and learns within its fi
 
 The brain is a graded rate model of the whole hermaphrodite connectome (Cook et al. 2019, chemical synapses and gap junctions,
 via OpenWorm's ConnectomeToolbox), with synapse signs from neurotransmitter identity (Wang et al. 2024) and receptor expression.
+
+Press **D** in the game to watch it happen: smell at the worm, AWC drive, AVA, and the threshold that triggers each turn-back.
+
+![Press D to see what drives every flap](docs/media/diag.gif)
 
 ## Does the wiring actually matter?
 
@@ -32,6 +38,8 @@ AIB is the published route by which AWC's "odour gone" signal drives reversals (
 mostly dies sinking into the bottom pipe: the smell fades but the flap never comes.
 
 There is also a **Real vs shuffled race** mode in the game: two worms, same course, same senses, only the wiring differs.
+
+![Real wiring vs the same neurons, rewired at random](docs/media/race.gif)
 
 ## What's real and what's engineered
 
