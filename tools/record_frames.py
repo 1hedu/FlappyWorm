@@ -1,5 +1,5 @@
-"""Smooth video capture: drive the game frame by frame (fixed 1/30 s steps) and screenshot the canvas each frame.
-Frame timing no longer depends on how fast the machine is.  usage: record_frames.py race|play|diag OUTDIR SECONDS"""
+"""Record one clip: advance the game in fixed 1/FPS steps and screenshot the canvas each frame.
+usage: record_frames.py race|play|diag OUTDIR SECONDS [FPS]"""
 import sys, os
 from pathlib import Path
 from playwright.sync_api import sync_playwright

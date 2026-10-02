@@ -1,5 +1,5 @@
 """Sensory inputs (game events -> neurons) and command readouts (neurons -> commands).
-These tables are ENGINEERED choices, grounded in the literature cited in docs/DECISIONS.md."""
+These tables are engineered choices."""
 SENSORY = {
     "touch_anterior":  ["ALML", "ALMR", "AVM"],
     "touch_posterior": ["PLML", "PLMR", "PVM"],

@@ -167,7 +167,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : this);
 
 // ---------------------------------------------------------------------------------------------
-// EigenBody: data-driven body (mirrors core/python/eigenbody.py). Needs the model JSON (data/body_model_v1.json).
+// EigenBody: data-driven body. Not used by the game; needs a body model JSON that is not included.
 (function (root) {
   "use strict";
   const api = (typeof module !== "undefined" && module.exports) ? module.exports : root.WormCore;
@@ -259,7 +259,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : this);
 
 // ---------------------------------------------------------------------------------------------
-// SaltMemory: receptor-level salt-concentration memory on ASER -> AIB / AIY. Mirrors prep/salt_memory.py.
+// SaltMemory: receptor-level salt-concentration memory on ASER -> AIB / AIY.
 (function (root) {
   "use strict";
   const api = (typeof module !== "undefined" && module.exports) ? module.exports : root.WormCore;

@@ -46,10 +46,10 @@ details { font-size: 14px; color: var(--muted); } summary { cursor: pointer; col
     <div class="row" style="margin-top:8px"><span class="muted">food smell → turn back?</span><span style="flex:1;max-width:220px;height:12px;background:var(--dim);border-radius:6px;position:relative;overflow:hidden"><i id="assoc" style="position:absolute;left:0;top:0;bottom:0;background:var(--glow)"></i></span><span id="assocv" class="muted"></span></div>
     <canvas id="curve" style="width:100%;height:90px;display:block;margin-top:8px;background:#172019;border-radius:4px" aria-label="Pipes passed per game"></canvas>
     <details style="margin-top:8px"><summary>What's real here?</summary>
-      <p><b>Real:</b> the 302-neuron wiring (Cook et al. 2019), transmitter identities (Wang et al. 2024), the odour neuron AWC and its output synapses, and the turn-back reflex through AVA, the same circuit that made the worm find salt.</p>
-      <p><b>Modelled on real biology:</b> the learning. Worms strengthen attraction to a cue that comes with food; here passing near a gap's centre counts as eating and scales AWC's output synapses up (the same rule as in the salt/odour learning game). Rates are compressed.</p>
+      <p><b>Real:</b> the 302-neuron wiring (Cook et al. 2019), transmitter identities (Wang et al. 2024), the odour neuron AWC and its output synapses, and the turn-back reflex through AVA.</p>
+      <p><b>Modelled on real biology:</b> the learning. Worms strengthen attraction to a cue that comes with food; here passing near a gap's centre counts as eating and scales AWC's output synapses up. Rates are compressed.</p>
       <p><b>Engineered:</b> the gap's smell (it depends on the worm's height relative to the gap centre and grows as the pipe approaches), reading a fresh rise of AVA above a threshold set from measured noise as "turn back" (flap if sinking, dive if climbing), gravity, pipes, slow motion. Learning off freezes the synapses; scrambled wiring shuffles synapse targets; the simple script reverses whenever the smell fades, with no neurons.</p>
-      <p><b>Checks:</b> with neural noise switched off the worm flies just as well (smell drives it); with the smell switched off it never turns back and falls; stronger AWC synapses fly better (smell strength 0.4 about 6 of 24 pipes, 1.0 about 18); five degree-preserving shuffles of the wiring score 0; learning worms go from about 1 pipe in their first game to mostly full courses. Knocking out single neurons (32 games each): only AIB significantly hurts (9.6 vs 19.0 pipes), matching the published route by which AWC's "odour gone" signal drives reversals through AIB (Chalasani et al. 2007).</p>
+      <p><b>Checks:</b> with neural noise switched off the worm flies just as well (smell drives it); with the smell switched off it never turns back and falls; stronger AWC synapses fly better (smell strength 0.4 about 6 of 24 pipes, 1.0 about 18); three degree-preserving shuffles of the wiring score 0; learning worms go from about 1 pipe in their first game to mostly full courses. Knocking out single neurons (32 games each): only AIB significantly hurts (9.6 vs 19.0 pipes), matching the published route by which AWC's "odour gone" signal drives reversals through AIB (Chalasani et al. 2007).</p>
       <p>This is a toy model driven by a real wiring diagram, not an upload of a worm.</p></details>
   </div>
 </div>
@@ -222,7 +222,7 @@ details { font-size: 14px; color: var(--muted); } summary { cursor: pointer; col
 })(typeof globalThis !== "undefined" ? globalThis : this);
 
 // ---------------------------------------------------------------------------------------------
-// EigenBody: data-driven body (mirrors core/python/eigenbody.py). Needs the model JSON (data/body_model_v1.json).
+// EigenBody: data-driven body. Not used by the game; needs a body model JSON that is not included.
 (function (root) {
   "use strict";
   const api = (typeof module !== "undefined" && module.exports) ? module.exports : root.WormCore;
@@ -314,7 +314,7 @@ details { font-size: 14px; color: var(--muted); } summary { cursor: pointer; col
 })(typeof globalThis !== "undefined" ? globalThis : this);
 
 // ---------------------------------------------------------------------------------------------
-// SaltMemory: receptor-level salt-concentration memory on ASER -> AIB / AIY. Mirrors prep/salt_memory.py.
+// SaltMemory: receptor-level salt-concentration memory on ASER -> AIB / AIY.
 (function (root) {
   "use strict";
   const api = (typeof module !== "undefined" && module.exports) ? module.exports : root.WormCore;

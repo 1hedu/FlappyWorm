@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Encode captured frames into the promo video (1440x1080, 60 fps) + the 800x600 CRT inputs.
+# Encode captured frames into the video (1440x1080, 60 fps) + the 800x600 CRT inputs.
 # Run tools/record_frames.py first:  for c in race:24 play:16 diag:16; do python3 tools/record_frames.py ${c%%:*} frames/${c%%:*} ${c##*:} 60; done
 set -euo pipefail
 cd "$(dirname "$0")/.."; F=frames; O=video; mkdir -p $O $O/crt

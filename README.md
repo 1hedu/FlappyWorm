@@ -24,7 +24,7 @@ Press **D** in the game to watch it happen: smell at the worm, AWC drive, AVA, a
 
 ## Does the wiring actually matter?
 
-Yes. The controls, all on courses the settings were never tuned on (`validation/results/`):
+Yes. All tests ran on courses the parameters were never tuned on (raw output in `validation/results/`):
 
 | Test | Result |
 |---|---|
@@ -44,11 +44,11 @@ There is also a **Real vs shuffled race** mode in the game: two worms, same cour
 ## What's real and what's engineered
 
 Real: the wiring, transmitter identities, the AWC → AVA pathway, and the learning site (AWC's output synapses).
-Engineered, in the same spirit as the 2026 fly connectome demos: the gap's smell, reading a fresh rise of AVA as
-"turn back" (threshold set from measured noise, which never reaches it), flap/dive physics, and a 2.5x time stretch: classic
-Flappy physics with the game clock running 2.5x slower than the worm's nervous system, because a worm's reflex takes about
-half a second. The page's "What's real here?" panel says the same. This is a toy model driven by a real wiring diagram, not an
-upload of a worm.
+Engineered: the gap's smell, reading a fresh rise of AVA as "turn back" (the threshold is set from measured noise, which never
+reaches it), the flap/dive physics, and the timing: the game clock runs 2.5x slower than the worm's nervous system, because a
+worm's reflex takes about half a second.
+
+This is a toy model driven by a real wiring diagram, not an upload of a worm.
 
 ## Run it yourself
 
@@ -63,11 +63,17 @@ Rebuild the brain from OpenWorm's data (optional; `data/brain_v2.json` is includ
     python3 prep/export.py                    # connectome + signs via ConnectomeToolbox -> data/connectome_cook2019_herm.json
     python3 prep/export_brain.py data/params_v2.json data/brain_v2.json
 
-Promo video (frame-by-frame capture, so it's smooth on any machine): `tools/record_frames.py` then `tools/encode_video.sh`.
-`tools/crt/mono-amber-800x600.cfg` is an amber preset for [FFmpeg-CRT-transform](https://github.com/viler-int10h/FFmpeg-CRT-transform)
-adapted for 800x600 square-pixel input.
+Record the video: `tools/record_frames.py` captures each clip frame by frame, then `tools/encode_video.sh` encodes them.
 
 ## Data and credits
 
 Wiring: Cook et al. 2019, *Nature*. Transmitter identity: Wang et al. 2024, *eLife*. Receptor expression: CeNGEN via
 WormNeuroAtlas. All loaded through [OpenWorm](https://openworm.org)'s ConnectomeToolbox. See `data/DATA_LICENSES.md`.
+
+The CRT look in the video comes from VileR's [FFmpeg-CRT-transform](https://github.com/viler-int10h/FFmpeg-CRT-transform).
+Thanks for the filter and the write-up,
+[Simulating CRT monitors with FFmpeg](https://int10h.org/blog/2021/01/simulating-crt-monitors-ffmpeg-pt-1-color/).
+
+## License
+
+Code: [MIT](LICENSE). Data keeps its original terms (`data/DATA_LICENSES.md`).

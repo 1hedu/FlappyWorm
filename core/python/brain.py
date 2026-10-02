@@ -8,13 +8,13 @@ W_ij = g_chem * sign_ij * count_ij / count_scale          (norm="global", defaul
      or g_chem * sign_ij * count_ij / sum_k count_ik    (norm="row")
 G_ij = gapcount_ij / gap_scale  (or row-normalised)
 
-Sign resolution per chemical edge (see docs/DECISIONS.md):
+Sign resolution per chemical edge:
   sign_mode=dominance and dominance known -> clip(dom_sharp * dominance)   [default]
   then data/sign_overrides.json (short, cited list) wins
   receptor prediction decisive (+/-)  -> use it
   both ends locomotor interneurons      -> cmd_conflict (if set)
   else by transmitter: ACh -> ach_conflict, Glu -> glu_conflict, GABA -> -1, unknown -> unknown_sign
-This file is the spec every engine port must reproduce (tests/golden).
+The JS engine (core/js/wormcore.js) implements the same model.
 """
 from __future__ import annotations
 import json
