@@ -4,7 +4,7 @@ The real 302-neuron wiring diagram of the worm *C. elegans* playing Flappy Bird,
 
 **[Play it](index.html)** (one self-contained page; open it in a browser) · press **D** while playing to see what drives every flap.
 
-![FlappyWorm](docs/media/flappyworm.gif)
+[![FlappyWorm](docs/media/flappyworm.gif)](docs/media/flappyworm.mp4)
 
 ## What's going on
 
