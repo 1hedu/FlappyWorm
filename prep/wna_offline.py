@@ -1,7 +1,7 @@
 """WormNeuroAtlas without network access.
 
 wormneuroatlas.NeuroAtlas() pings WormBase for a DB version check and crashes when
-WormBase is unreachable (always true in the Claude sandbox). The atlas data itself is
+WormBase is unreachable (e.g. offline or behind a firewall). The atlas data itself is
 bundled with the package, so we skip only the version check.
 """
 import wormneuroatlas as wna
